@@ -1,4 +1,4 @@
-makeCacheMatrix <- function( m = matrix() ) {
+makeCacheMatrix <- function( y = matrix() ) {
 
 	## Initialize the inverse property
     a <- NULL
@@ -34,9 +34,9 @@ makeCacheMatrix <- function( m = matrix() ) {
 }
 
 
+##  computes the inverse of the special "matrix" returned by makeCacheMatrix above
 cacheSolve <- function(x, ...) {
 
-    ## Return a matrix that is the inverse of 'x'
     y <- x$getInverse()
  
     if( !is.null(y) ) {
@@ -49,9 +49,7 @@ cacheSolve <- function(x, ...) {
     ## Calculate the inverse using matrix multiplication
     y <- solve(data) %*% data
 
-    ## Set the inverse to the object
     x$setInverse(y)
 
-    ## Return the matrix
     y
 }
